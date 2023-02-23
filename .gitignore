@@ -108,4 +108,3 @@ config.yml
 out/
 *.csv
 *credentials*.json
-src/uploader.js
