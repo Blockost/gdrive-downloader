@@ -1,8 +1,0 @@
-# See https://docs.npmjs.com/cli/v9/using-npm/developers
-#*.csv
-#*.yml
-#.editorconfig
-#.prettierrc
-
-# Output of 'npm pack'
-#*.tgz

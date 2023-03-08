@@ -103,8 +103,10 @@ dist
 # TernJS port file
 .tern-port
 
+# IntelliJ
+.idea/
+
 # App specific
 config.yml
-out/
 *.csv
 *credentials*.json
