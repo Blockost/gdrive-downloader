@@ -2,8 +2,8 @@
   "name": "gdrive-downloader",
   "version": "0.0.2",
   "description": "Wrapper project to download files from Google Drive",
-  "main": "out/index.js",
-  "types": "out/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/"
   ],
@@ -11,7 +11,7 @@
     "start": "ts-node src/index.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "prepare": "rimraf out/ && tsc",
+    "prepare": "rimraf dist/ && tsc",
     "tsc": "tsc",
     "ts-node": "ts-node",
     "genversion": "genversion"
