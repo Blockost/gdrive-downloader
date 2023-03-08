@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as CSV from 'csv-string';
 import fs from 'fs';
 import { google } from 'googleapis';
-import { Config } from "./constants";
+import { Config } from './constants';
 
 // TODO: 2023-01-15 Simon Add logger and log to a file instead (or use events instead )!
 // See https://stackoverflow.com/questions/53284918/how-to-log-from-a-npm-package-without-forcing-a-logging-library
@@ -48,8 +48,10 @@ export class GDriveDownloader {
             const targetDelimiter = config.csvProcessingOptions?.targetSeparator;
             if (targetDelimiter && originalDelimiter !== targetDelimiter) {
 
-                console.log('target', targetDelimiter);
-                const regex = new RegExp(originalDelimiter, 'g')
+                console.log('Target delimiter is', targetDelimiter);
+                // Match delimiter except between quotes (escaping quotes allowed)
+                // See https://stackoverflow.com/a/11503678
+                const regex = new RegExp(`${originalDelimiter}(?=(?:(?:\\\\.|[^"\\\\])*"(?:\\\\.|[^"\\\\])*")*(?:\\\\.|[^"\\\\])*$)`, 'g')
                 csvData = csvData.replace(regex, targetDelimiter);
                 const newDelimiter = CSV.detect(csvData);
                 console.log('New delimiter is', CSV.detect(csvData))
